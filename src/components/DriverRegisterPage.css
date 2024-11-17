@@ -1,0 +1,87 @@
+/* General page styling */
+/* body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+    margin: 0;
+    padding: 0;
+} */
+
+.driver-register-page {
+   
+   
+    min-height: 100vh;
+    
+    
+}
+
+/* Navbar styling */
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #b71c1c;
+    color: white;
+    width: 100%;
+    padding: 15px;
+}
+
+.navbar .logo {
+    height: 50px;
+    margin-right: 10px;
+}
+
+h1 {
+    text-align: center;
+    margin: 0;
+}
+
+h3 {
+    text-align: center;
+    margin-top: 20px;
+    color: #333;
+}
+
+/* Form styling */
+.driver-register-form {
+    margin-left: 500px;
+    margin-right: 60px;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(10, 10, 0, 1);
+    border: solid 1px #000000;
+    max-width: 400px; /* Ensures the form does not stretch too wide */
+    width: 100%; /* Sets form width to container width */
+    margin-top: 20px;
+}
+
+.driver-register-form input {
+    width: 100%; /* Ensures input fields stretch to full form width */
+    margin-bottom: 15px;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+     box-shadow: 0 4px 8px rgba(3, 3, 0, .3);
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+/* Button styling */
+.driver-register-form button {
+    width: 100%;
+    padding: 10px;
+    background-color: #0d47a1;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.driver-register-form button:hover {
+    background-color: #0b3a84; /* Slightly darker blue on hover */
+}
