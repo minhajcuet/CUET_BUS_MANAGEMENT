@@ -48,8 +48,10 @@
 } */
 .App {
   flex: center;
-  background-image: url('https://wallpaperboat.com/wp-content/uploads/2019/10/cool-website-background-08.jpg');
+  /* background-image: url('https://wallpaperboat.com/wp-content/uploads/2019/10/cool-website-background-08.jpg'); */
+  background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRlouirZYVwupAQenVe4TkMObnT6f5TdYVFg3rBblNDVVix8AZa09AbD2QTjS6wYrjqXYY&usqp=CAU');
   background-size: cover;
+  background-repeat: no-repeat;
   height: '100vh';
   /* flexDirection: 'column'; */
   background-position: center;

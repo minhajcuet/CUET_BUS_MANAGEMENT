@@ -39,13 +39,13 @@ function DriverRegisterPage() {
 
         //console.log(driverData);
         // After registration, navigate to the driver profile or show success message
-        const driverData = {
-            driverId: driverData.driverId,
-            name: driverData.name,
-            contactNo: driverData.contactNo,
-            email: driverData.email,
-            password: driverData.password,
-        };
+        // const driverData = {
+        //     driverId: driverData.driverId,
+        //     name: driverData.name,
+        //     contactNo: driverData.contactNo,
+        //     licenseNo: driverData.licenseNo,
+        //     password: driverData.password,
+        // };
 
         console.log("Registering driver:", driverData); // Log data to console
     
@@ -100,12 +100,12 @@ return (
                 required 
             />
             <input 
-                type="email" 
-                name="email" 
-                placeholder="Email" 
-                value={driverData.email}
+                type="text"
+                name="licenseNo"
+                placeholder="License No"
+                value={driverData.licenseNo}
                 onChange={handleInputChange}
-                required 
+                required
             />
             <input 
                 type="password" 
@@ -115,6 +115,16 @@ return (
                 onChange={handleInputChange}
                 required 
             />
+            <div className="captcha-section">
+                    <label>
+                        <input 
+                            type="checkbox" 
+                            checked={isHuman} 
+                            onChange={handleCheckboxChange} 
+                        />
+                        I'm not a robot
+                    </label>
+                </div>
             <button type="submit">Register</button>
         </form>
         </div>

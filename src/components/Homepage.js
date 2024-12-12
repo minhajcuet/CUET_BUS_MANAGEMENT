@@ -13,12 +13,47 @@ function Homepage() {
 
   return (
     <div className="homepage">
-      <div className="heroj"></div>
-      <div className="picture-containers">
-        <div className="picture-boxs">
-          <ImageSlider images={images} />
-        </div>
+      
+      <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-indicators">
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+  </div>
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+    <img src='https://www.cuet.ac.bd/frontend/images/background-slider-1.jpg' width='2160px' height='720px' class="d-block w-100" ></img>
+    
+      <div class="carousel-caption d-none d-md-block">
+        {/* <h3>First slide label</h3>
+        <p>Some representative placeholder content for the first slide.</p> */}
       </div>
+    </div>
+    <div class="carousel-item">
+    <img src='https://www.cuet.ac.bd/frontend/images/background-slider-1.jpg' width='2160px' height='720px' class="d-block w-100" ></img>
+    
+    <div class="carousel-caption d-none d-md-block">
+        {/* <h5>Second slide label</h5>
+        <p>Some representative placeholder content for the second slide.</p> */}
+      </div>
+    </div>
+    <div class="carousel-item">
+    <img src='https://www.cuet.ac.bd/frontend/images/background-slider-1.jpg' width='2160px' height='720px' class="d-block w-100" ></img>
+    <div class="carousel-caption d-none d-md-block">
+        {/* <h5>Third slide label</h5>
+        <p>Some representative placeholder content for the third slide.</p> */}
+      </div>
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
 
       <section className="main-section">
         <div className="column" id="mission">
@@ -48,7 +83,7 @@ function Homepage() {
               <button className="login-buttonh">Login / Register</button>
             </Link>
             <button className="know-buttonh">Know More</button>
-            <button className="about-buttonh">About Dev</button>
+            {/* <button className="about-buttonh">About Dev</button> */}
           </div>
         </section>
       </section>
@@ -74,7 +109,7 @@ function Homepage() {
     </div>
 
     <a
-      href="https://www.google.com/maps?q=CUET+Chittagong"
+      href="https://www.google.com/maps/place/Chittagong+University+of+Engineering+and+Technology+(CUET)/@22.4619433,91.9684843,17z/data=!3m1!4b1!4m6!3m5!1s0x30ad2fca34ae5549:0x35c88a37b3e90e97!8m2!3d22.4619433!4d91.9710592!16zL20vMGdtcXY0?entry=ttu&g_ep=EgoyMDI0MTIwOS4wIKXMDSoASAFQAw%3D%3Dhttps://www.google.com/maps/place/Chittagong+University+of+Engineering+and+Technology+(CUET)/@22.4619433,91.9710592,17z/data=!3m1!4b1!4m6!3m5!1s0x30ad2fca34ae5549:0x35c88a37b3e90e97!8m2!3d22.4619433!4d91.9710592!16zL20vMGdtcXY0?entry=ttu&g_ep=EgoyMDI0MTIwOS4wIKXMDSoASAFQAw%3D%3D"
       target="_blank"
       rel="noopener noreferrer"
       className="view-map-link">

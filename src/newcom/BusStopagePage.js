@@ -4,7 +4,7 @@ import './BusStopagePage.css';
 const BusStopagePage = () => {
     // Define the unique bus stops with dynamic image URLs and descriptions
     const busStopages = [
-        { name: 'Station', image: 'https://example.com/images/station.jpg', description: 'Main bus station.' },
+        { name: 'Station', image: 'blob:https://web.whatsapp.com/a7f72b80-c8f5-4781-bb8d-4aeec567623f', description: 'Main bus station.' },
         { name: 'Tigerpass', image: 'https://example.com/images/tigerpass.jpg', description: 'Popular bus stop for commuters.' },
         { name: 'Lalkhan Bazar', image: 'https://example.com/images/lalkhanbazar.jpg', description: 'Bazar area, busy with foot traffic.' },
         { name: 'GEC', image: 'https://lh5.googleusercontent.com/p/AF1QipPxw1gRQxXCwTShQ0aomF9j_1hM1o1yBea_Q8r2=w408-h306-k-no', description: 'Located near the General Electric company.' },
@@ -24,15 +24,15 @@ const BusStopagePage = () => {
 
     return (
         <div className="bus-stopage-page">
-            <h1 style={{textAlign: 'center', fontSize: '20px', fontWeight: 'bold' ,margin:'30px',color:'black'}}>Bus Stopages</h1>
-            <p style={{textAlign: 'center', fontSize: '20px', fontWeight: 'bold' ,margin:'30px',color:'black'}}>Explore all the bus stops across different routes.</p>
+            <h1 style={{textAlign: 'center', fontSize: '20px', fontWeight: 'bold' ,margin:'30px',color:'white'}}>Bus Stopages</h1>
+            <p style={{textAlign: 'center', fontSize: '20px', fontWeight: 'bold' ,margin:'30px',color:'white'}}>Explore all the bus stops across different routes.</p>
             
             <div className="bus-stopages-container">
                 {busStopages.map((stop, index) => (
                     <div key={index} className="bus-stopage-item">
                         <img src={stop.image} alt={stop.name} className="bus-stopage-image" />
-                        <h3 className="bus-stopage-name">{stop.name}</h3>
-                        <p className="bus-stopage-description">{stop.description}</p>
+                        <h3 className="bus-stopage-name" style={{color: 'white'}}>{stop.name}</h3>
+                        <p className="bus-stopage-description" style={{color: 'white'}}>{stop.description}</p>
                     </div>
                 ))}
             </div>

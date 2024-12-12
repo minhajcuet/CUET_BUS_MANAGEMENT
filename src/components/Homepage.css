@@ -135,7 +135,7 @@ object-fit: cover;
 }
 
 .hero-content button:hover {
-  background-color: #e68900;
+  background-color: #04e600;
   transform: translateY(-3px) scale(1.05);
 }
 .login-buttonh {
@@ -198,7 +198,7 @@ object-fit: cover;
 .login-buttonh:hover,
 .about-buttonh:hover,
 .know-buttonh:hover {
-  background-color: #e68900;
+  background-color: #10e280;
   transform: translateY(-3px) scale(1.05);
 }
 /* Keyframe animation for floating effect */

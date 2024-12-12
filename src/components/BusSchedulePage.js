@@ -1,23 +1,45 @@
-import React, { useState } from 'react';
-import './BusSchedulePage.css'; // Add custom styles for additional visuals and animations
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';  // Import axios for fetching data
+import './BusSchedulePage.css';
 
 function BusSchedulePage() {
+    const [buses, setBuses] = useState([]);
     const [selectedBus, setSelectedBus] = useState(null);
+    const [busStops, setBusStops] = useState([]);  // Added state for bus stops
+    const [selectedBusStop, setSelectedBusStop] = useState("");  // State for selected bus stop
 
-    const buses = [
-        { name: 'Bus A', occupied: 25, booked: 30, vacant: 5, location: 'Tigerpass', femaleOnly: false, route: ['Station 1', 'Station 2', 'Station 3'] },
-        { name: 'Bus B', occupied: 20, booked: 25, vacant: 5, location: 'Bus Stop 1', femaleOnly: true, route: ['Station A', 'Station B', 'Station C'] },
-        { name: 'Bus C', occupied: 15, booked: 30, vacant: 15, location: 'Bus Stop 2', femaleOnly: false, route: ['Station X', 'Station Y', 'Station Z'] },
-        { name: 'Bus d', occupied: 15, booked: 30, vacant: 15, location: 'Bus Stop 2', femaleOnly: false, route: ['Station X', 'Station Y', 'Station Z'] },
-        { name: 'Bus E', occupied: 15, booked: 30, vacant: 15, location: 'Bus Stop 2', femaleOnly: false, route: ['Station X', 'Station Y', 'Station Z'] },
-        
-        
-        // Add more bus objects here as needed
-    ];
+    const handleBusStopChange = (event) => {
+        console.log('Selected bus stop:', event.target.value);
+        setSelectedBusStop(event.target.value);
+    };
+    
+    useEffect(() => {
+        console.log('Fetching bus stops...');
+        axios.get('http://localhost:8080/api/busstopages')
+            .then(response => {
+                console.log('Bus stops received:', response.data);
+                setBusStops(response.data);
+            })
+            .catch(error => {
+                console.error('Error fetching bus stops:', error);
+            });
+
+            axios.get('http://localhost:8080/api/buses/active')  // Adjust to your real API endpoint
+            .then(response => {
+                setBuses(response.data);
+            })
+            .catch(error => {
+                console.error('Error fetching buses data:', error);
+            });
+    }, []);
 
     const handleBusClick = (bus) => {
         setSelectedBus(bus);
     };
+
+    // const handleBusStopChange = (event) => {
+    //     setSelectedBusStop(event.target.value);  // Update selected bus stop
+    // };
 
     const closeModal = () => {
         setSelectedBus(null);
@@ -26,14 +48,34 @@ function BusSchedulePage() {
     return (
         <div style={styles.container}>
             <div className='dd'>
-            <h1 style={styles.title}>Bus Schedule and Seat Booking</h1>
+                <h1 style={styles.title}>Bus Schedule and Seat Booking</h1>
 
-<div style={styles.busStatus}>
-    <h2 style={styles.statusTitle}>Status:</h2>
-    <h2 style={styles.busListTitle}>Bus List: ({buses.length} buses)</h2>
-    <h3 style={styles.activeBusList}>Active Bus List</h3>
-            </div>
-            
+                {/* Bus Stop Selection Dropdown */}
+                <div style={styles.busStopSelection}>
+    <label htmlFor="bus-stop">Select Bus Stop:</label>
+    <select
+        id="bus-stop"
+        value={selectedBusStop}
+        onChange={handleBusStopChange}
+        style={styles.dropdown}
+    >
+        <option value="">-- Select Bus Stop --</option>
+        {busStops.map((busStop) => (
+            <option 
+                key={busStop.stopageName} // Changed from id to stopageName
+                value={busStop.stopageName} // Changed from name to stopageName
+            >
+                {busStop.stopageName} {/* Changed from name to stopageName */}
+            </option>
+        ))}
+    </select>
+</div>
+
+                <div style={styles.busStatus}>
+                    <h2 style={styles.statusTitle}>Status:</h2>
+                    <h2 style={styles.busListTitle}>Bus List: ({buses.length} buses)</h2>
+                    <h3 style={styles.activeBusList}>Active Bus List</h3>
+                </div>
 
                 <div style={styles.busList}>
                     {buses.map((bus, index) => (
@@ -46,6 +88,7 @@ function BusSchedulePage() {
                             }}
                         >
                             <h3>{bus.name}</h3>
+                            
                             <p>Occupied: {bus.occupied}</p>
                             <p>Booked: {bus.booked}</p>
                             <p>Vacant: {bus.vacant}</p>
@@ -58,8 +101,6 @@ function BusSchedulePage() {
 
             <div style={styles.buttonContainer}>
                 <button style={styles.backButton} onClick={() => window.location.href = '/student-profile'}>Back</button>
-                {/* <button style={styles.bookButton}>Book A Seat</button> */}
-                {/* <button style={styles.bookButton} onClick={() => window.location.href = '/bus-seat-booking'}>Book A Seat</button> */}
             </div>
 
             {selectedBus && (
@@ -91,14 +132,6 @@ const styles = {
         flexDirection: 'column',
         alignItems: 'center',
     },
-    // dd:{
-    //     display:'flex',
-    //     flexDirection:'column',
-    //     alignItems:'center',
-    //     border: '2px solid #333',
-    //     backgroundColor:
-    //     boxShadow: '0px 6px 12px rgba(0, 0, 0, 0.1)',
-    // },
     title: {
         textAlign: 'center',
         fontSize: '36px',
@@ -106,6 +139,18 @@ const styles = {
         fontWeight: 'bold',
         marginBottom: '20px',
         textTransform: 'uppercase',
+    },
+    busStopSelection: {
+        marginBottom: '20px',
+        textAlign: 'center',
+        color: 'black',
+    },
+    dropdown: {
+        fontSize: '16px',
+        padding: '8px 16px',
+        marginTop: '10px',
+        width: '200px',
+        color: 'black',
     },
     busStatus: {
         marginTop: '20px',
@@ -122,7 +167,6 @@ const styles = {
         fontSize: '24px',
     },
     activeBusList: {
-
         fontWeight: 'bold',
         color: '#444',
         fontSize: '20px',
@@ -154,10 +198,6 @@ const styles = {
         cursor: 'pointer',
         transition: 'transform 0.2s, box-shadow 0.2s',
         textTransform: 'capitalize',
-    },
-    busCardHover: {
-        transform: 'scale(1.05)',
-        boxShadow: '0px 6px 12px rgba(0, 0, 0, 0.2)',
     },
     detailText: {
         fontSize: '12px',
@@ -210,15 +250,8 @@ const styles = {
         maxWidth: '400px',
         textAlign: 'center',
     },
-    closeButton: {
-        marginTop: '20px',
-        padding: '10px 20px',
-        backgroundColor: '#d9534f',
-        color: '#fff',
-        border: 'none',
-        borderRadius: '8px',
-        cursor: 'pointer',
-    },
-};
+   
+}
+
 
 export default BusSchedulePage;

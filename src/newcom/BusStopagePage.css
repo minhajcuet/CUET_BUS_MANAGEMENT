@@ -36,6 +36,10 @@
     padding: 20px;
   }
   
+  .bus-stopages-container.p{
+    color:black;
+  }
+
   .bus-stopage-item {
     border: 0.6px solid #5b3b3b;
     padding: 10px;

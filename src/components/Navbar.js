@@ -17,14 +17,15 @@ const Navbar = () => {
                         <h2 className="app-title">CUET Transport Management App</h2>
                     </div>
                 </div>
+                {/* <div className='space'></div> */}
                 <ul className="navbar-links">
                     <li><Link to="/">Home</Link></li>
-                    <li><Link to="/routes">Routes</Link></li>
+                    {/* <li><Link to="/routes">Routes</Link></li> */}
                     {/* Replace the static route with dynamic route */}
                     <li><Link to={`/bus-stopages`}>Bus Stopages</Link></li> {/* Example for Route 1 */}
                     <li><Link to="/bus-seat-booking">Seat Booking</Link></li>
-                    <li><Link to="/schedule">Schedule</Link></li>
-                    <li><Link to="/about">About Us</Link></li>
+                    {/* <li><Link to="/schedule">Schedule</Link></li> */}
+                    {/* <li><Link to="/about">About Us</Link></li> */}
                     <li><Link to="/contact">Contact Us</Link></li>
                     <li><Link to="/feedback">Feedback</Link></li>
                 </ul>

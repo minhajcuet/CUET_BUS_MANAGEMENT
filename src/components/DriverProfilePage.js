@@ -24,9 +24,14 @@ function DriverProfilePage() {
                     <p>
                         <strong>Contact No:</strong> {driverData.contactNo}
                     </p>
-                    <p>
-                        <strong>Email:</strong> {driverData.email}
+                   <p>
+                        <strong>License No:</strong> {driverData.licenseNo}
                     </p>
+                    
+                    <p>
+                        <strong>Route ID:</strong> {driverData.routeId}
+                    </p>
+                   
                     <button>
                         <Link to="/">← Back to Home</Link>
                     </button>

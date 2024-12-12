@@ -19,8 +19,8 @@ function StudentProfilePage() {
                     <p><strong>Department:</strong> {studentData.department}</p>
                     <p><strong>Batch:</strong> {studentData.batch}</p>
                     <p><strong>Gender:</strong> {studentData.gender}</p>
-                    <p><strong>Hall:</strong> {studentData.hall}</p>
-                    <p><strong>Blood Group:</strong> {studentData.bloodGroup}</p>
+                    {/* <p><strong>Hall:</strong> {studentData.hall}</p>
+                    <p><strong>Blood Group:</strong> {studentData.bloodGroup}</p> */}
                     <p><strong>Contact No:</strong> {studentData.contactNo}</p>
                     <p><strong>Email:</strong> {studentData.email}</p>
                 </div>

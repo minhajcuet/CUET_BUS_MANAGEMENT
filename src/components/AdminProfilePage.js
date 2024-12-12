@@ -30,8 +30,11 @@ function AdminProfilePage() {
                     {/* <button>
                         <Link to="/">← Back to Home</Link>
                     </button> */}
-                    <button className="adminbutton">
+                    {/* <button className="adminbutton">
                             <Link to="/admin">MANAGE BUS</Link>
+                        </button> */}
+                         <button className="adminbutton">
+                            <Link to="/assign-driver-to-bus">MANAGE BUS</Link>
                         </button>
                 </div>
             </div>

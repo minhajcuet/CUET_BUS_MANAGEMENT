@@ -49,8 +49,8 @@ function StudentRegisterPage() {
             department: student.department,
             batch: student.batch,
             gender: student.gender,
-            hall: student.hall,
-            bloodGroup: student.bloodGroup,
+            // hall: student.hall,
+            // bloodGroup: student.bloodGroup,
             contactNo: student.contactNo,
             email: student.email,
             password: student.password,
@@ -123,22 +123,22 @@ function StudentRegisterPage() {
                     <option value="Male">Male</option>
                     <option value="Female">Female</option>
                 </select>
-                <input 
+                {/* <input 
                     type="text" 
                     name="hall" 
                     placeholder="Hall Name" 
                     value={student.hall} 
                     onChange={handleInputChange} 
                     required 
-                />
-                <input 
+                /> */}
+                {/* <input 
                     type="text" 
                     name="bloodGroup" 
                     placeholder="Blood Group" 
                     value={student.bloodGroup} 
                     onChange={handleInputChange} 
                     required 
-                />
+                /> */}
                 <input 
                     type="text" 
                     name="contactNo" 

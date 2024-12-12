@@ -25,6 +25,8 @@ import AdminPage from './components/AdminPage'; // Import the AdminPage componen
 import BusSeatBookingPage from './components/BusSeatBookingPage';
 import BusSeatConfirmationPage from './components/BusSeatConfirmationPage';
 import './App.css';
+import AssignDriverToBus from "./components/AssignDriverToBus";
+import ActiveBusesWithDrivers from './components/ActiveBusesWithDrivers';
 
 
 
@@ -36,7 +38,9 @@ function App() {
       {/* <div className="App" style={appStyle}>
       <div className="main-container" style={mainContainerStyle}> */}
         <Routes>
+        <Route path="/active-buses-drivers" element={<ActiveBusesWithDrivers />} />
         <Route path="/admin" element={<AdminPage />} />
+        <Route path="/assign-driver-to-bus" element={<AssignDriverToBus />} />
         <Route path="/mission" element={<MissionPage />} />
         <Route path="/buses" element={<BusesPage />} />
         <Route path="/notice" element={<NoticePage />} />
